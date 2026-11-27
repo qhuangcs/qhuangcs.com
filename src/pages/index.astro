@@ -1,11 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const heroLinks = [
-	{ label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-	{ label: 'Email', href: 'mailto:hello@example.com' },
-];
-
 const heroParagraphs = [
 	'I have spent much of my career working on large-scale systems at Meta and Kuaishou, across video, compute, storage, and networking. Over time, my work moved from systems research and hands-on engineering to building teams and organizations responsible for infrastructure at scale.',
 	'I am now back in the Bay Area, writing code again and learning more about the systems emerging around AI training, inference, and developer tools.',
@@ -54,11 +49,6 @@ const selectedWork = [
 		title: 'Facebook Photo Caching',
 		description:
 			'Research on caching and storage behavior in Facebook’s production photo infrastructure, developed through collaboration between Cornell and Facebook and published at SOSP 2013.',
-		links: [
-			{ label: 'Paper', href: '#' },
-			{ label: 'Slides', href: '#' },
-			{ label: 'Thesis', href: '#' },
-		],
 	},
 ];
 
@@ -87,9 +77,6 @@ const publications = [
 		<div class="hero-copy">
 			{heroParagraphs.map((paragraph) => <p>{paragraph}</p>)}
 		</div>
-		<nav class="text-links" aria-label="Contact and profile links">
-			{heroLinks.map((link) => <a href={link.href}>{link.label}</a>)}
-		</nav>
 	</section>
 
 	<section class="section themes-section" aria-labelledby="themes-title">
@@ -128,15 +115,6 @@ const publications = [
 					<article class="entry-item">
 						<h3>{item.title}</h3>
 						<p>{item.description}</p>
-						{
-							item.links && (
-								<nav class="inline-links" aria-label={`${item.title} links`}>
-									{item.links.map((link) => (
-										<a href={link.href}>{link.label}</a>
-									))}
-								</nav>
-							)
-						}
 					</article>
 				))
 			}

@@ -1,21 +1,6 @@
----
-const links = [
-	{ label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-	{ label: 'Resume', href: '/resume.pdf' },
-	{ label: 'Email', href: 'mailto:hello@example.com' },
-];
----
-
 <footer class="site-footer">
 	<div>
 		<p class="footer-name">Qi Huang</p>
 		<p>San Francisco Bay Area</p>
 	</div>
-	<nav class="footer-links" aria-label="Footer links">
-		{
-			links.map((link) => (
-				<a href={link.href}>{link.label}</a>
-			))
-		}
-	</nav>
 </footer>

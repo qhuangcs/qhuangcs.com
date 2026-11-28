@@ -131,6 +131,30 @@ main,
 	border-radius: 6px;
 }
 
+.notes-page {
+	max-width: var(--reading-width);
+	margin-inline: auto;
+}
+
+.notes-page h1 {
+	font-size: 2.35rem;
+	overflow-wrap: anywhere;
+}
+
+.note-content > * + * {
+	margin-block-start: 1rem;
+}
+
+.note-content img {
+	max-width: 100%;
+	height: auto;
+}
+
+.note-content pre {
+	overflow-x: auto;
+	padding: 1rem;
+}
+
 .eyebrow {
 	color: var(--accent);
 	font-size: 0.82rem;

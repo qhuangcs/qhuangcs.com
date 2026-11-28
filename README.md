@@ -41,3 +41,21 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Writing notes
+
+Add a Markdown file to `src/content/notes/`. Its filename determines the note URL, so keep the filename stable after publishing.
+
+```markdown
+---
+title: "When is more expensive video encoding worth it?"
+date: 2026-11-27
+themes: [systems, leadership]
+---
+
+Write the note here.
+```
+
+Use one or more of `systems`, `leadership`, and `learning`. Each note gets one page and appears in every tagged theme, newest first. A theme becomes clickable on the homepage when it has a note.
+
+Run `npm run dev` to preview and `npm run build` to verify. Pushing to `main` publishes through the existing GitHub Pages workflow.

@@ -114,9 +114,21 @@ main,
 }
 
 .hero {
-	max-width: min(760px, 100%);
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 19rem);
+	align-items: center;
+	gap: 2rem clamp(2rem, 5vw, 5rem);
+	max-width: 960px;
 	margin-inline: auto;
 	padding-block: clamp(3rem, 6vw, 4.75rem) clamp(2.75rem, 5vw, 4rem);
+}
+
+.hero-portrait {
+	display: block;
+	width: 100%;
+	max-width: 19rem;
+	height: auto;
+	border-radius: 6px;
 }
 
 .eyebrow {
@@ -199,13 +211,6 @@ h2 {
 	max-width: 760px;
 }
 
-.experience-item h3 {
-	font-family: Georgia, "Times New Roman", serif;
-	font-size: clamp(1.5rem, 3vw, 2.2rem);
-	font-weight: 500;
-	line-height: 1.15;
-}
-
 .inline-links {
 	display: flex;
 	flex-wrap: wrap;
@@ -272,6 +277,7 @@ h3 {
 	}
 
 	.hero {
+		grid-template-columns: 1fr;
 		padding-block: 3rem 2.5rem;
 	}
 

@@ -2,8 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const heroParagraphs = [
-	'I have spent much of my career working on large-scale systems at Meta and Kuaishou, across video, compute, storage, and networking. Over time, my work moved from systems research and hands-on engineering to building teams and organizations responsible for infrastructure at scale.',
-	'I am now back in the Bay Area, writing code again and learning more about the systems emerging around AI training, inference, and developer tools.',
+	'I lead core infrastructure at Fireworks AI, where I oversee reliability, storage, traffic, and developer infrastructure for the AI platform.',
+	'Before Fireworks, I led engineering teams at Kuaishou and Facebook (now Meta), working across video, compute, storage, and traffic between users and data centers. I started out in distributed systems research and still enjoy writing code and learning how new systems are built.',
 ];
 
 const themes = [
@@ -23,47 +23,83 @@ const themes = [
 
 const experience = [
 	{
-		company: 'Meta',
-		description:
-			'I joined Meta after completing my Ph.D. and worked on the infrastructure behind large-scale video products. Over time, my role grew from systems research and engineering into building and leading teams responsible for video processing, streaming, and compute infrastructure.',
+		company: 'Fireworks AI',
+		detail: 'Head of Core Infrastructure · Aug 2026–Present',
 	},
 	{
 		company: 'Kuaishou',
-		description:
-			'At Kuaishou, I led engineering organizations across video and audio technology, storage, and network infrastructure. Much of the work focused on supporting continued product growth while improving cost efficiency, reliability, and operational discipline.',
+		detail: 'VP of Engineering · Mar 2021–Feb 2026',
+	},
+	{
+		company: 'Facebook (now Meta)',
+		detail: 'Senior Engineering Manager, Infrastructure · Sep 2014–Mar 2021',
+		earlier: 'PhD Fellow Intern · May 2012–Aug 2014',
 	},
 ];
 
 const selectedWork = [
 	{
-		title: 'Video Infrastructure at Meta',
+		title: 'Infrastructure Efficiency at Kuaishou',
 		description:
-			'Work on video processing, streaming systems, compute scheduling, and the infrastructure required to operate media products at global scale.',
+			'I led work to improve efficiency across media, traffic, and storage. We optimized video compression and lifecycle management to use compute, storage, and bandwidth more efficiently. We cut delivery costs by exploring alternative network resources, and developed a high-performance storage engine that enabled Disagg for analytics, media, and AI workloads.',
+		links: [
+			{ label: 'LiveVideoStackCon talk recap (Chinese)', href: 'https://juejin.cn/post/7036575493755240455' },
+		],
 	},
 	{
-		title: 'Infrastructure at Kuaishou',
+		title: 'Video Infrastructure at Facebook',
 		description:
-			'Leadership across video and audio technology, storage, CDN, traffic acceleration, and related platform systems during a period of rapid growth and increasing focus on efficiency and reliability.',
+			'I helped build Facebook’s shared video processing platform and worked on streaming systems and compute scheduling for media products at global scale.',
+		links: [
+			{ label: 'Video@Scale talk', href: 'https://atscaleconference.com/videos/distributed-encoding-at-scale/' },
+			{ label: 'Facebook Research overview', href: 'https://research.facebook.com/blog/2020/10/what-video-infrastructure-research-looks-like-at-facebook/' },
+		],
 	},
 	{
-		title: 'Facebook Photo Caching',
+		title: 'Caching in the Facebook CDN',
 		description:
-			'Research on caching and storage behavior in Facebook’s production photo infrastructure, developed through collaboration between Cornell and Facebook and published at SOSP 2013.',
+			'As a Cornell PhD student and Facebook fellow, I studied how photos were served across Facebook’s production cache layers and worked with researchers and engineers to improve caching in its CDN. Our work spanned three generations of flash-based caching: McDipper, BlockCache, and RIPQ.',
+		links: [
+			{ label: 'Facebook Research blog post', href: 'https://research.facebook.com/blog/2016/4/the-evolution-of-advanced-caching-in-the-facebook-cdn/' },
+		],
 	},
 ];
 
 const publications = [
 	{
+		title: 'SVE: Distributed Video Processing at Facebook Scale',
+		detail: 'SOSP 2017',
+		href: 'https://research.facebook.com/publications/sve-distributed-video-processing-at-facebook-scale/',
+	},
+	{
+		title: 'Popularity Prediction of Facebook Videos for Higher Quality Streaming',
+		detail: 'USENIX ATC 2017',
+		href: 'https://www.usenix.org/system/files/conference/atc17/atc17-tang.pdf',
+	},
+	{
+		title: 'Gorilla: A Fast, Scalable, In-Memory Time Series Database',
+		detail: 'VLDB 2015',
+		href: 'https://www.vldb.org/pvldb/vol8/p1816-teller.pdf',
+	},
+	{
+		title: 'RIPQ: Advanced Photo Caching on Flash for Facebook',
+		detail: 'FAST 2015',
+		href: 'https://www.usenix.org/conference/fast15/technical-sessions/presentation/tang',
+	},
+	{
+		title: 'Characterizing Load Imbalance in Real-World Networked Caches',
+		detail: 'HotNets 2014',
+		href: 'https://doi.org/10.1145/2670518.2673882',
+	},
+	{
 		title: 'An Analysis of Facebook Photo Caching',
 		detail: 'SOSP 2013',
+		href: 'https://doi.org/10.1145/2517349.2522722',
 	},
 	{
-		title: 'An Efficient and Resilient Approach to Filtering and Disseminating Streaming Data',
-		detail: 'Middleware 2010',
-	},
-	{
-		title: 'Systems and Algorithms for Large-Scale Content Delivery',
-		detail: 'Ph.D. dissertation, Cornell University',
+		title: 'Overcoming CAP with Consistent Soft-State Replication',
+		detail: 'IEEE Computer, 2012',
+		href: 'https://www.cs.cornell.edu/projects/mrc/IEEE-CAP.16.pdf',
 	},
 ];
 ---
@@ -73,10 +109,19 @@ const publications = [
 	description="Qi Huang builds and leads large-scale systems with calm technical judgment."
 >
 	<section class="hero" aria-labelledby="hero-title">
-		<h1 id="hero-title">Qi Huang</h1>
-		<div class="hero-copy">
-			{heroParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+		<div>
+			<h1 id="hero-title">Qi Huang</h1>
+			<div class="hero-copy">
+				{heroParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+			</div>
 		</div>
+		<img
+			class="hero-portrait"
+			src={`${import.meta.env.BASE_URL}qi-huang-portrait.jpg`}
+			alt="Illustrated portrait of Qi Huang smiling in sunglasses against a mountain backdrop"
+			width="900"
+			height="900"
+		/>
 	</section>
 
 	<section class="section themes-section" aria-labelledby="themes-title">
@@ -100,7 +145,8 @@ const publications = [
 				experience.map((item) => (
 					<article class="experience-item">
 						<h3>{item.company}</h3>
-						<p>{item.description}</p>
+						<p>{item.detail}</p>
+						{item.earlier && <p>{item.earlier}</p>}
 					</article>
 				))
 			}
@@ -115,19 +161,24 @@ const publications = [
 					<article class="entry-item">
 						<h3>{item.title}</h3>
 						<p>{item.description}</p>
+						{item.links && (
+							<div class="inline-links">
+								{item.links.map((link) => <a href={link.href}>{link.label}</a>)}
+							</div>
+						)}
 					</article>
 				))
 			}
 		</div>
 	</section>
 
-	<section class="section section-quiet" aria-labelledby="publications-title">
+	<section id="publications" class="section section-quiet" aria-labelledby="publications-title">
 		<h2 id="publications-title">Selected Publications</h2>
 		<div class="publication-list">
 			{
 				publications.map((publication) => (
 					<article class="publication-item">
-						<h3>{publication.title}</h3>
+						<h3>{publication.href ? <a href={publication.href}>{publication.title}</a> : publication.title}</h3>
 						<p>{publication.detail}</p>
 					</article>
 				))

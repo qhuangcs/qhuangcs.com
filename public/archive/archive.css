@@ -1,0 +1,30 @@
+body {
+  width: min(62rem, calc(100% - 2.5rem));
+  margin: 2rem auto;
+  color: #222;
+  font: 1rem/1.55 system-ui, sans-serif;
+}
+
+a { color: #146481; overflow-wrap: anywhere; }
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.row:has(> main) {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+aside img { max-width: 100%; height: auto; }
+aside h5, aside h6 { margin: 0.75rem 0; font-size: 1rem; }
+hr { border: 0; border-top: 1px solid #ddd; }
+
+@media (max-width: 42rem) {
+  .row:has(> main) { grid-template-columns: 1fr; }
+  aside img { max-width: min(100%, 16rem); }
+}
